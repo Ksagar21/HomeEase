@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route, useLocation } from "react-router-dom";
-
 import LoginPage from "./Pages/LoginPage/LoginPage";
 import Homepage from './Pages/HomePage/Homepage';
 import Shops from './Pages/ShopsPage/Shops';
