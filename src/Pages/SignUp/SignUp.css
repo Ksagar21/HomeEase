@@ -1,0 +1,44 @@
+
+
+.submitBtn{
+    background:#8A33FD ;
+    color: white;
+}
+
+.inputLabels{
+    font-family: 'causten', sans-serif;
+    font-weight: 400;
+}
+
+.inputFields{
+    font-size: 18px;
+}
+
+@media (max-width: 767.98px) {
+    .logindiv {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .form-outline,
+    .form-control,
+    .inputLabels,
+    .submitBtn {
+      width: 100%;
+    }
+  }
+
+  .underline{
+    text-decoration: underline !important;
+  }
+
+  .greyTexts{
+    font-family: 'causten', sans-serif !important;
+font-size: 14px !important;
+font-weight: 500 !important;
+line-height: 19.2px !important;
+text-align: right !important;
+color: #807D7E;
+  }

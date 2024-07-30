@@ -1,0 +1,44 @@
+.spastyle{
+    font-size: 10px;
+    color: #807D7E;
+    
+  }
+  .spa{
+    font-size: 1  4px;
+  }
+  .fixed-sidebar {
+    position: fixed;
+    top: 56px; 
+    bottom: 0;
+    overflow-y: auto;
+  }
+  @media (max-width: 776px) {
+    .desktop-sidebar {
+      display: none !important; 
+    }
+  
+    .mobile-sidebar {
+      display: block !important;
+    }
+  }
+  
+  @media (min-width: 426px) {
+    .desktop-sidebar {
+      display: block !important;
+    }
+  
+    .mobile-sidebar {
+      display: none !important;
+    }
+  }
+  .offcanvas {
+    margin-top: 56px; 
+  }
+  
+  .offcanvas-header {
+    margin-top: 0;
+  }
+  
+  .offcanvas-body {
+    margin-top: 0;
+  }

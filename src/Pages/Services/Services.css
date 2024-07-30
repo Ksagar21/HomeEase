@@ -1,0 +1,23 @@
+/* .ServiceBorder{
+    border: 1px solid black ;
+} */
+
+.ServiceBorder{
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    padding: 20px ;
+    border-radius: 5px; 
+    background-color: #fff; 
+  }
+  
+  .custom-carousel-image {
+    max-height: 350px; 
+    object-fit: cover; 
+  }
+
+  .modaldiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  

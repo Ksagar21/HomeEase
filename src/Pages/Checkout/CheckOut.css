@@ -1,0 +1,121 @@
+.inputBox{
+    height: 54px;
+    background-color:#EDEEF2;
+    border: none;
+    border-radius: 5px;
+    padding-left:10px;
+}
+
+.inputBoxProof{
+    background-color:#EDEEF2;
+    border: none;
+    border-radius: 5px;
+    padding-left:10px;
+    height: 149px;
+}
+
+.inputLabel{
+font-family: Causten;
+font-size: 18px;
+font-weight: 600;
+line-height: 21.6px;
+letter-spacing: 0.02em;
+text-align: left;
+/* padding: 2px 0 ; */
+}
+
+
+.container {
+    padding: 20px;
+  }
+  
+  .form-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .inputLabel {
+    margin-bottom: 5px;
+  }
+  
+  .inputBox {
+    padding: 5px;
+    margin-bottom: 15px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .input-pair {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+    margin-right: 4%;
+  }
+  
+  .input-pair:nth-child(2n) {
+    margin-right: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .input-pair {
+      width: 100%;
+      margin-right: 0;
+    }
+  }
+  
+
+  .btn{
+ width: Hug (125px)px;
+height: Hug (48px)px;
+padding: 12px 40px 12px 40px;
+margin: 10px 9px;
+gap: 13.39px;
+border-radius: 8px;
+opacity: 0px;
+background-color: #8A33FD;
+color: white;
+  }
+
+.heading{
+font-family: Causten;
+font-size: 28px;
+font-weight: 400;
+margin-top: 33.5px;
+letter-spacing: 0.02em;
+text-align: left;
+}
+
+.fillEv{
+  font-family: Causten;
+font-size: 14px;
+/* font-weight: 400; */
+line-height: 18.23px;
+text-align: left;
+
+}
+
+.formStarts{
+  margin-top: 30px;
+}
+
+.inputFields{
+  margin-top: 32.61px;
+}
+
+.error{
+  color: red;
+}
+
+.orderSummary{
+    border: 1px solid  #EDEEF2;
+}
+
+.img-thumbnail{
+padding: 2px;
+}
+
+
+.paymentDiv{
+  background-color: #F6F6F6;
+  padding: 35px;
+}

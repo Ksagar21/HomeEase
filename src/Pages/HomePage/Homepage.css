@@ -1,0 +1,184 @@
+
+
+.img-grid{
+  width: 100%; /* Default to full width */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 100%; /* Max width to ensure equal size */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-grid img {
+ width: 100%; /* Default to full width */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 100%; /* Max width to ensure equal size */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.img-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+  }
+
+  .imgdimension{
+    width: 100%;
+    height: 100%;
+  }
+
+  .subText{
+    font-size: 34px;
+    font-weight: 400;
+    line-height: 33.5px;
+    margin-left: 75px;
+    font-family: 'Causten';
+    padding-left: 10px;
+    border-left: 6px solid #8A33FD;
+    border-radius: 3px 0 0 3px;
+  }
+
+  .thirdGrid{
+    margin-top: 5rem;
+  }
+
+  .imgdimension3{
+    width: 282px;
+    height: 370px;
+  }
+
+  .img-container {
+    position: relative;
+  }
+  
+  .heart-icon {
+    position: absolute;
+    width: 32.36px;
+    height: 32.36px;
+    top: 26.73px;
+    left: 228.95px;
+    gap: 0px;
+    opacity: 0px;
+  }
+
+  .forthGrid{
+    margin-top: 5rem;
+  }
+ 
+  .reviewBox{
+    border: 2px solid #BEBCBD;
+    padding: 35px 20px;
+    border-radius: 10px;
+  }
+
+  .reviewBox img{
+    height: 57.98px;
+    width: 57.98px;
+  }
+
+  .reviewTab{
+    margin-top: 5rem ;
+  }
+
+  .reviewBox {
+    width: 90% !important;
+    margin-left: 5%;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+  }
+
+
+  .reviewName{
+    /* font-family: "Core Sans C"; */
+    font-family:" DM Sans";
+    font-size: 24px;
+    font-weight: 400;
+    margin-top: 10px !important;
+    text-align: left;
+  }
+
+  .reviewComment{
+font-family: "Causten";
+font-size: 14px;
+font-weight: 100;
+line-height: 16.8px;
+letter-spacing: 0.02em;
+text-align: left;
+color: #807D7E;
+  }
+
+  .selectBar .css-13cymwt-control{
+    height: 65px !important;
+    border-color: linear-gradient(90deg, #04250e, #B5AC49);
+  }
+
+  .selectBar {
+    margin-top: 20px;
+  }
+
+.welcomeTag{
+  font-weight: bolder;
+  font-size: 40px;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #3CA55C, #B5AC49);
+  /* background: linear-gradient(45deg, #4aa1f3, #ff0059); */
+  /* background: linear-gradient(90deg, #088715d7,#0e0887d7,#9b2805d7, #feb47b); */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  /* text-fill-color: transparent; */
+}
+
+.footerDiv{
+  background-color: #f8f9fa;
+}
+
+.whyContainer{
+  background-color: rgb(248 249 250);
+}
+
+.image-container1 {
+  position: relative;  /* Allow absolute positioning of button */
+  width: 450px;
+}
+
+.image-container2 {
+  position: relative;  /* Allow absolute positioning of button */
+  width: 425px;
+}
+
+.image-row {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around; /* Center the images horizontally */
+  align-items: center; /* Center the images vertically */
+}
+
+.image-button {
+  position: absolute;
+  top: 50%;  /* Center the button vertically */
+  left: 50%;  /* Center the button horizontally */
+  transform: translate(-50%, -50%);  /* Adjust positioning as needed */
+  background-color: rgba(0, 0, 0, 0.5);  /* Semi-transparent background */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;  /* Change cursor to indicate clickability */
+}
+
+.image-button:hover {
+  background-color: rgba(0, 0, 0, 0.7);  /* Darken on hover */
+}
+
+
+

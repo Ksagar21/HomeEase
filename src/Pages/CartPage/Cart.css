@@ -1,0 +1,167 @@
+.firstDiv :first-child{
+  font-family: 'Causten';
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 21.6px;
+  text-align: left;
+  Height:22px
+}
+
+.TopPadding{
+font-family: 'Causten';
+/* font-size: 15px;
+font-weight: 400; */
+/* line-height: 16.8px; */
+letter-spacing: 0.02em;
+text-align: left;
+color: #807D7E;
+}
+
+.firstDiv span:nth-child(1){
+  font-family: 'Causten';
+  /* font-size: 15px;
+  font-weight: 400; */
+  /* line-height: 16.8px; */
+  letter-spacing: 0.02em;
+  text-align: left;
+  color: #807D7E;  
+}
+
+
+.full-width-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.full-width-table th, .full-width-table td {
+  padding: 8px; 
+  color: white;
+  padding: 25px 75px;
+  font-family: 'Causten';
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+}
+
+thead{
+  background-color: #3C4242;
+}
+
+.td{
+  color: #807D7E !important;
+  /* width: 147px; */
+  height: 17px;
+  top: 31px;
+  gap: 0px;
+  opacity: 0px;
+}
+
+.quantity{
+  /* background-color: #F6F6F6; */
+  padding: 2px 0px;
+  border-radius: 10px;
+}
+
+.tableRow{
+  border-bottom: 1px solid #BEBCBD;
+  /* margin: 500px !important; */
+}
+
+
+
+.cart-container {
+  padding:  15px;
+  overflow-x: hidden;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.full-width-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.product-image {
+  max-width: 100px;
+  height: auto;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+}
+
+.coupon-container {
+  margin-top: 20px;
+}
+
+.coupon :first-child{
+  font-family: "Causten";
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28.8px;
+  text-align: left;
+}
+
+.coupon :nth-child(2){
+  font-family: "Causten";
+  font-size: 16px;
+  color: #807D7E;
+  /* font-weight: 400; */
+}
+
+.Logintxt{
+  color: #8A33FD !important;
+  font-family: 'Causten';
+  cursor: pointer;
+}
+
+.TopPadding{
+  margin-top: 30px !important;
+}
+
+.TotalDiv{
+  background-color: #F6F6F6;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  flex-direction: column;
+  font-family: 'causten', sans-serif !important;
+  font-size: 18px;
+  font-weight: 100;
+  line-height: 26.4px;
+  letter-spacing: 0.02em;
+  text-align: left;
+  color: #3C4242;
+  padding: 40px 70px 30px 0px;
+}
+
+.checkOutBtn{
+  color: white;
+  border: none;
+  background-color:#8A33FD;
+  padding:12px 20px 12px 20px;
+  border-radius: 8px;
+}
+
+.checkOutBtn:hover {
+  background-color: #218838;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.label {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.value {
+  flex: 0;
+  margin-left: 20px;  
+}
