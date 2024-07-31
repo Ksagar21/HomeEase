@@ -4,7 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 // import loginimg from "../../../src/Assets/LoginPageAssets/Loginimage.png";
 import signupimage from "../../Assets/LoginPageAssets/SignupImage.png"
-import "./Signup.css"
+import "../SignUp/SignUp.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { signUpApi } from '../../Services/Api';
 import { useNavigate } from 'react-router-dom';
@@ -45,13 +45,13 @@ const navigate = useNavigate()
           </div>
           <div className='col-sm-6 d-flex flex-column align-items-center justify-content-center logindiv'>
             <Formik
-              initialValues={{ email: '', password: '' , name:'',role:"provider"}}
+              initialValues={{ email: '', password: '' , name:'',role:"user"}}
               validationSchema={validationSchema}
               onSubmit={signUp}
             >
               {({ errors, touched }) => (
                 <Form className="w-100 d-flex flex-column align-items-center">
- <div className="provLog">PROVIDERS SIGNUP </div>
+
                   <div className="form-outline mb-4 col-lg-8">
                       <label className="form-label inputLabels mb-3" htmlFor="name">User name</label>
                       <Field type="text" id="username" name="username" className={`form-control form-control-lg col-lg-12 col-md-12 inputFieldsLogin ${touched.username && errors.username ? 'is-invalid' : ''}`} />

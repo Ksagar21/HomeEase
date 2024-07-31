@@ -10,7 +10,7 @@
         font-weight: 400;
     }
     
-    .inputFieldsLogin{
+    .inputFields{
         font-size: 18px;
     }
 
@@ -30,10 +30,5 @@
         }
       }
     
-.provLog{
-  font-family: 'causten', sans-serif;
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 30px;
-}
+
 
