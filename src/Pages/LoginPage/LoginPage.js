@@ -4,14 +4,12 @@ import * as Yup from "yup";
 import loginimg from "../../../src/Assets/LoginPageAssets/Loginimage.png";
 import "../LoginPage/LoginPage.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Link, useNavigate } from "react-router-dom";
 import { LoginApi } from "../../Services/Api";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { toast } from 'react-toastify';
 import { BiShow } from "react-icons/bi";
 import { BiHide } from "react-icons/bi";
-import { useState } from "react";
-import { GoogleLogin } from '@react-oauth/google';
-import { jwtDecode } from "jwt-decode";
+import {useState} from "react"
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email address").required("Required"),
@@ -21,53 +19,33 @@ const validationSchema = Yup.object().shape({
 });
 
 function LoginPage() {
-  const [passwordVisble, SetPasswordVisible] = useState(false);
+  const [passwordVisble , SetPasswordVisible] = useState(false)
   const navigate = useNavigate();
   const Login = (values) => {
     console.log(values);
     LoginApi(values)
       .then((res) => {
-        console.log(res);
-        if (res.data.message) {
-          toast.error(res.data.message);
+        console.log(res.data);
+
+        if (res.data.role === "user") {
+          toast.error("User not authorized to access this page");
         } else {
-          sessionStorage.setItem('role',res.data.role);
-          sessionStorage.setItem("username", res.data.username);
-          sessionStorage.setItem("email", res.data.email);
-          toast.success("Logged in Successfully");
-          if (res.data.role === "admin") {
-            navigate("/admin");
-          } else {
-            navigate("/");
-          }
+          sessionStorage.setItem("category",res.data.category);
+           sessionStorage.setItem("email",res.data.email)
+           sessionStorage.setItem("isverified",res.data.isverified)
+           toast.success(res.data.isverified?"Login Success":"Unverified Login Success")
+           navigate("/home");
         }
       })
       .catch((err) => {
         console.log(err);
-        toast.error(err.response.data.message);
+        toast.error(err.response.data.message)
       });
   };
 
-  const TogglePassword = () => {
-    SetPasswordVisible(!passwordVisble);
-  };
-
-  const onSuccess = (response) => {
-    console.log('Login Success:', response);
-    const decoded = jwtDecode(response.credential);
-    console.log(decoded);
-    sessionStorage.setItem('role','user');
-    sessionStorage.setItem("username",decoded.name);
-    sessionStorage.setItem("email", decoded.email);
-    toast.success("Logged in Successfully");
-    
-      navigate("/");
-    
-  };
-
-  const onFailure = (error) => {
-    console.error('Login Failure:', error);
-  };
+  const TogglePassword =()=>{
+    SetPasswordVisible(!passwordVisble)
+  }
 
   return (
     <section className="vh-100">
@@ -89,9 +67,13 @@ function LoginPage() {
             >
               {({ errors, touched }) => (
                 <Form className="w-100 d-flex flex-column align-items-center">
+                  <div className="provLog">PROVIDERS LOGIN </div>
                   <div className="form-outline mb-4 col-lg-8">
-                    <label className="form-label inputLabels" htmlFor="email">
-                      User name or email address
+                    <label
+                      className="form-label inputLabels mb-3"
+                      htmlFor="email"
+                    >
+                      Shop email address
                     </label>
                     <Field
                       type="email"
@@ -116,21 +98,10 @@ function LoginPage() {
                       >
                         Password
                       </label>
-                      <span className="inputLabels" onClick={TogglePassword}>
-                        {passwordVisble ? (
-                          <span>
-                            <BiHide />
-                            Hide
-                          </span>
-                        ) : (
-                          <span>
-                            <BiShow /> Show
-                          </span>
-                        )}
-                      </span>
+                      <span className='inputLabels' onClick={TogglePassword}>{passwordVisble ? <span><BiHide/>Hide</span> :<span><BiShow/> Show</span>}</span>
                     </div>
                     <Field
-                      type={passwordVisble ? "text" : "password"}
+                     type={passwordVisble ?"text" : "password"}
                       id="password"
                       name="password"
                       className={`form-control form-control-lg inputFieldsLogin ${
@@ -144,9 +115,11 @@ function LoginPage() {
                     />
                   </div>
 
-                  {/* <div className="col-lg-8 d-flex justify-content-end">
-                    <a href="#!" className="text-body inputLabels">Forgot Your password</a>
-                  </div> */}
+                  <div className="col-lg-8 d-flex justify-content-end">
+                    <a href="#!" className="text-body inputLabels">
+                      Forgot Your password
+                    </a>
+                  </div>
 
                   <div className="col-lg-8 text-lg-start mt-4 pt-2">
                     <button
@@ -158,25 +131,20 @@ function LoginPage() {
                     </button>
                     <p className="small mt-2 pt-1 mb-0 inputLabels">
                       Don't have an account?{" "}
-                      <a href="/signUp" className="link-danger">
-                        Sign up
-                      </a>
+                      <Link to="/signup">
+                        <a href="#!" className="link-danger">
+                          Sign up
+                        </a>
+                      </Link>
                     </p>
                   </div>
                 </Form>
               )}
             </Formik>
-            <GoogleLogin
-        buttonText="Login with Google"
-        onSuccess={onSuccess}
-        onFailure={onFailure}
-        cookiePolicy={'single_host_origin'}
-      />
           </div>
         </div>
       </div>
     </section>
-   
   );
 }
 

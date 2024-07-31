@@ -1,326 +1,272 @@
-import React, { useEffect , useState} from "react";
-import firstimg from "../../Assets/HomePage/High coziness.png";
-import secondImg from "../../Assets/HomePage/image 22.png";
-import smallimg1 from "../../Assets/HomePage/womenssaloon.png";
-import heart from "../../Assets/HomePage/Frame 49.png";
-import acservice from "../../Assets/HomePage/AcService.png";
-import menssaloon from "../../Assets/HomePage/MensSaloon.png";
-import painting from "../../Assets/HomePage/painting.png";
-import electric from "../../Assets/HomePage/Rectangle 20.png";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./Homepage.css";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { GetShops } from "../../Services/Api";
-import { Link, useNavigate } from "react-router-dom";
-import Select from "react-select"
-import Navbar from "../navbar/Navbar";
-import arrow from "../../Assets/HomePage/right-arrow.png"
-import quality from "../../Assets/HomePage/quality.png"
+import React , { useState } from 'react';
+import "./Home.css";
+import Com1 from "../../Assets/Component 1.png";
+import Com2 from "../../Assets/Component 2.png";
+import Com3 from "../../Assets/Component 3.png";
+import Product7 from "../../Assets/Product7.png";
+import { FaPhone } from "react-icons/fa6";
+import { CgMail } from "react-icons/cg";
+import { CiLocationOn } from "react-icons/ci";
 
-function Homepage() {
-  const navigate = useNavigate();
-  function getShopsApi () {
-    const category = "Saloddddon";
-    GetShops(category)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err)
-      });
-  };
 
-  useEffect(() => {
-    getShopsApi();
-  }, []);
 
-  const [inputValue, setInputValue] = useState('');
-  const [options, setOptions] = useState([
-    { value: 'Chennai', label: 'Chennai' },
-    { value: 'Coimbatore', label: 'Coimbatore' },
-    { value: 'Salem', label: 'Salem' },
+const Homepage = () => {
+  const [items, setItems] = useState([
+    { id: 1, name: "Women spa - Face tan remove and pac", duration: "1 hr", price: "350", image: Product7, description: "nice facial" },
   ]);
 
-  const handleInputChange = (newValue) => {
-    setInputValue(newValue);
+  const [orders, setOrders] = useState([
+    { id: 1, orderId: 1001, customer: "kanthan", service: "Full Body Massage", date: "25 jan 2024" },
+    { id: 2, orderId: 1002, customer: "John Smith", service: "Facial Treatment", date: "10 Aug 2024" }
+  ]);
+
+  const [showForm, setShowForm] = useState(false);
+  const [newItem, setNewItem] = useState({ name: "", duration: "", price: "", image: "", description: "" });
+  const [imagePreview, setImagePreview] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [activeTab, setActiveTab] = useState("services");
+
+  const handleAddClick = () => {
+    setShowForm(true);
   };
 
-  const handleChange = (selectedOption) => {
-    setInputValue(selectedOption ? selectedOption.label : '');
-    navigate('/services')
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewItem({ ...newItem, [name]: value });
   };
 
-  const handleNavigation = () => {
-    navigate('/services');
+  const handleImageChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      const file = e.target.files[0];
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImagePreview(reader.result );
+        setNewItem({ ...newItem, image: reader.result  });
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
-
-  const customComponents = {
-    DropdownIndicator: null,
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const updatedItems = [...items, { ...newItem, id: items.length + 1 }];
+    setItems(updatedItems);
+    setShowForm(false);
+    setNewItem({ name: "", duration: "", price: "", image: "", description: "" });
+    setImagePreview("");
+    console.log('Updated Items:', updatedItems);
   };
 
-  var settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3,
-    initialSlide: 0,
-    autoplay: true,
-    speed: 2000,
-    autoplaySpeed: 1800,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
   };
 
-  const carouselImages = [
-    "https://static.vecteezy.com/system/resources/previews/010/719/386/non_2x/construction-workers-building-the-wall-vector.jpg" ,
-    "https://cdni.iconscout.com/illustration-pack/preview/hair-salon-18-155393.png",
-    "https://static.vecteezy.com/system/resources/previews/007/784/048/non_2x/plumber-workers-working-in-the-home-vector.jpg"
-  ];
+  const filteredItems = items.filter(item =>
+    item.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
-  const carouselSettings = {
-    dots: false,
-    infinite: true,
-    autoplay: true,
-    speed: 1000,
-    autoplaySpeed: 3000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    fade: true, // Enable fade effect
-    cssEase: 'linear',
+  const handleRowClick = () => {
+    setActiveTab("order");
   };
-
-
-  const secondGrid = [
-    { img: smallimg1,name:"Women's Spa" },
-    { img: menssaloon,name:"Men's Saloon" },
-    { img: acservice,name:"AC Service" },
-    { img: painting ,name:"Painting"},
-  ];
-
-  const forthGrid = [
-    { img: electric },
-    { img: electric },
-    { img: electric },
-    { img: electric },
-  ];
-   
-
-  const review = [
-    {
-      photo: smallimg1,
-      name: "Gopi",
-      comment:
-        "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint  Velit officia consequat duis enim velit mollit. Exercitation veniam consequat  sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor      do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet  ",
-    },
-    {
-      photo: smallimg1,
-      name: "Gopi",
-      comment:
-        "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint  Velit officia consequat duis enim velit mollit. Exercitation veniam consequat  sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor      do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet  ",
-    },
-    {
-      photo: smallimg1,
-      name: "Gopi",
-      comment:
-        "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint  Velit officia consequat duis enim velit mollit. Exercitation veniam consequat  sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor      do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet  ",
-    },
-    {
-      photo: smallimg1,
-      name: "Gopi",
-      comment:
-        "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint  Velit officia consequat duis enim velit mollit. Exercitation veniam consequat  sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor      do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet  ",
-    },
-    {
-      photo: smallimg1,
-      name: "Gopi",
-      comment:
-        "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint  Velit officia consequat duis enim velit mollit. Exercitation veniam consequat  sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor      do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet  ",
-    },
-    {
-      photo: smallimg1,
-      name: "Gopi",
-      comment:
-        "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint  Velit officia consequat duis enim velit mollit. Exercitation veniam consequat  sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor      do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet  ",
-    },
-    {
-      photo: smallimg1,
-      name: "Gopi",
-      comment:
-        "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint  Velit officia consequat duis enim velit mollit. Exercitation veniam consequat  sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor      do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet  ",
-    },
-  ];
-
-  const whyHomeEasePoints = [
-    "Single Platform Solution ",
-    "Transparent Rates",
-    "Fully Equipped with Experts ",
-  ];
-
-  const whyHomeEaseImage = "https://via.placeholder.com/300";
 
   return (
-    <>
-    <Navbar />
-    <div className="container-fluid">
-      <div className="d-flex flex-column flex-md-column justify-content-around align-items-center">
-        <div className="col-8 mt-5 ">
-          <span className="welcomeTag gradient-text">Welcome to He ! {sessionStorage.getItem('username')?sessionStorage.getItem('username'):""}</span>
-          <Select
-      components={customComponents}
-      inputValue={inputValue}
-      onInputChange={handleInputChange}
-      onChange={handleChange}
-      options={options}
-      isClearable
-      isSearchable
-      placeholder="Search for Services"
-      noOptionsMessage={() => 'Type to add new value'}
-      className="selectBar"
-    />
-        </div>
-        <div className="d-flex img-grid">
-        {/* <div className="mb-3 mb-md-0 col-6">
-          <img src="https://static.vecteezy.com/system/resources/previews/010/719/386/non_2x/construction-workers-building-the-wall-vector.jpg" className="rounded img-fluid" alt="First Image" />
-        </div> */}
-        <div className="mb-3 mb-md-0 col-6">
-              <Slider {...carouselSettings}>
-                {carouselImages.map((img, index) => (
-                  <img key={index} src={img} className="rounded img-fluid" alt="First Image" className="rounded img-fluid" alt={`Carousel Image ${index + 1}`} />
-                ))}
-              </Slider>
-            </div>
-         <div className="col-6">
-          <img
-            src="https://static.vecteezy.com/system/resources/previews/001/984/801/large_2x/housekeeping-team-with-cleaning-equipment-free-vector.jpg"
-            className="rounded img-fluid"
-            alt="Second Image"
-          />
-        </div>
+    <div>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a className="navbar-brand ms-5" href="#" style={{ fontSize: "30px" }}>
+          HE
+        </a>
+        <span className='' style={{ fontSize: "15px" }}>Home <br /> Ease</span>
+          <form className="d-flex ms-auto">
+            <button type="button" className="btn btn-secondary me-3">logout</button>
+          </form>
+      </nav>
+
+    
+      <div className="image-container">
+        <div className="split right mt-5">
+          <div className="info-container mt-5 info-text">
+            <div className="mt-5" style={{ marginTop: "50px", fontSize: "20px" }}>Annies Women Spa</div>
+            <div className="" style={{ textAlign: "left" }}><FaPhone /> <span className='ms-2'>35645646465456</span></div>
+            <div className="" style={{ textAlign: "left" }}><CgMail /><span className='ms-2'>gmail.com</span></div>
+            <div className="" style={{ textAlign: "left" }}><CiLocationOn /><span className='ms-2'>73, Panchali Amman Kovil Street</span></div>
+          </div>
         </div>
       </div>
 
-      <div className="why-home-ease-section mt-5 ">
-          <span className="subText">Why Home Ease?</span>
-          <div className="d-flex justify-content-around align-items-center mt-4 py-4 whyContainer">
-            <div className="why-home-ease-points">
-              {whyHomeEasePoints.map((point, index) => (
-                <div key={index} className="d-flex align-items-center mb-3">
-                  <img src={arrow} style={{width:"30px"}} className="arrow-icon mr-2 " alt="Arrow Icon" />
-                  <span className="mx-5">{point}</span>
-                </div>
-              ))}
+      <div className="search-bar-container">
+        <div className="container">
+          <div className="row w-80">
+            <div className="col-md-4 d-flex align-items-center">
+              <ul className="nav me-auto ms-5">
+                <li className="nav-item">
+                  <a
+                    className={`nav-link ${activeTab === "services" ? "active" : ""}`}
+                    href="#"
+                    onClick={() => setActiveTab("services")}
+                  >
+                    Services
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    className={`nav-link ${activeTab === "order" ? "active" : ""}`}
+                    href="#"
+                    onClick={() => setActiveTab("order")}
+                  >
+                    Booking
+                  </a>
+                </li>
+              </ul>
             </div>
-            <div className="why-home-ease-image">
-              <img src={quality} style={{width:"250px"}} className="rounded img-fluid" alt="Why Home Ease Image" />
+            <div className="col-md-4 d-flex align-items-center justify-content-end">
+              <input
+                className="form-control me-2"
+                type="search"
+                placeholder="Search..."
+                aria-label="Search"
+                value={searchTerm}
+                onChange={handleSearchChange}
+              />
+              <button className="btn btn-primary ms-2" onClick={handleAddClick}>+Add</button>
             </div>
           </div>
         </div>
 
-      <div className="thirdGrid">
-        <span className="subText">Most Booked Services</span>
-        <div className="d-flex flex-wrap align-items-center justify-content-around mx-lg-4 mt-4">
-          {secondGrid.map((item, index) => (
-
-            <div
-              key={index}
-              className="img-container small-img-container position-relative"
-            >
-              <Link to ="/services">
-              <div className="mb-4">
-                <img
-                  src={item.img}
-                  className="rounded img-fluid imgdimension3"
-                  alt=""
-                />
-                <img src={heart} className="heart-icon" alt="Heart Icon" />
+        {showForm && (
+          <div className="container mt-3 p-3" style={{ backgroundColor: "#F3F3F3", maxWidth: "80%" }}>
+            <form onSubmit={handleFormSubmit}>
+              <div className="row mb-3">
+                <div className="col-md-3">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Service Name"
+                    name="name"
+                    value={newItem.name}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div className="col-md-3">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Description"
+                    name="description"
+                    value={newItem.description}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div className="col-md-3">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Duration"
+                    name="duration"
+                    value={newItem.duration}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div className="col-md-3">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Price"
+                    name="price"
+                    value={newItem.price}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div className="col-md-3">
+                  <input
+                    type="file"
+                    className="form-control"
+                    onChange={handleImageChange}
+                  />
+                  {imagePreview && (
+                    <img src={imagePreview} className="img-fluid mt-2" alt="Preview" />
+                  )}
+                </div>
               </div>
-              </Link>
-              <span style={{ fontFamily: "Causten" }}>{item.name}</span>
+              <button type="submit" className="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        )}
+
+        {activeTab === "services" && (
+          <div className="container mt-3 p-3">
+            <div className="row ms-5">
+              <div className="col-12">
+                <div className="single-tab mb-3">Services</div>
+              </div>
+              <div className="col-12">
+                <div className="table-responsive">
+                  <table className="table table-striped table-bordered" style={{ width: '88%' }}>
+                    <thead>
+                      <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Duration</th>
+                        <th>Price</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {filteredItems.map(item => (
+                        <tr key={item.id} onClick={() => setActiveTab("services")}>
+                          <td>
+                            <img src={item.image} className="img-fluid" alt="Service" style={{ width: '50px', height: '50px' }} />
+                          </td>
+                          <td>{item.name}</td>
+                          <td>{item.description}</td>
+                          <td>{item.duration}</td>
+                          <td>{item.price}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
-          ))}
-        </div>
+          </div>
+        )}
+
+        {activeTab === "order" && (
+          <div className="container mt-3 p-3" style={{ backgroundColor: "#F3F3F3", maxWidth: "80%" }}>
+            <table className="table table-striped table-responsive">
+              <thead>
+                <tr>
+                  <th>S.no</th>
+                  <th>Booking ID</th>
+                  <th>User Name</th>
+                  <th>Service Name</th>
+                  <th>Date Time</th>
+                </tr>
+              </thead>
+              <tbody>
+                {orders.map(order => (
+                  <tr key={order.id} onClick={() => handleRowClick()}>
+                    <td>{order.id}</td>
+                    <td>{order.orderId}</td>
+                    <td>{order.customer}</td>
+                    <td>{order.service}</td>
+                    <td>{order.date}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
       </div>
 
-
-      <div className="container-fluid reviewTab">
-        <span className="subText">Feedback</span>
-        <div className="slider-container">
-          <Slider {...settings} className="mt-5">
-            {review.map((item, index) => (
-              <div className="reviewBox">
-                <img
-                  src={item.photo}
-                  className="slider-img"
-                  alt="Description"
-                />
-                <p className="reviewName">{item.name}</p>
-                <p className="reviewComment">{item.comment}</p>
-              </div>
-            ))}
-          </Slider>
+      <footer className="footer bg-light text-center text-lg-start  mt-5 " >
+        <div className="container p-4" style={{marginTop:"100px"}}>
         </div>
-      </div>
-      {/* <div class="d-flex flex-column flex-md-row justify-content-center align-items-center mt-5 container">
-  <div class="footerImage">
-    <img src="https://www.nerdwallet.com/assets/blog/wp-content/uploads/2017/10/GettyImages-947995974-1920x1152.jpg" class="rounded img-fluid" alt="First Image" />
-     </div>
-  <div class="footerImage">
-    <img src="https://media.istockphoto.com/id/506597420/photo/sanitary-installation.jpg?s=612x612&w=0&k=20&c=3O8c-ZrKqHyOak6obfYsUsV_TV_d0Y_9Is3c4v_Uaso=" class="rounded img-fluid" alt="Second Image" />
-     </div>
-</div> */}
-<div className="image-row">
-<div class="footerImage">
-  <div class="image-container1">
-    <img src="https://www.nerdwallet.com/assets/blog/wp-content/uploads/2017/10/GettyImages-947995974-1920x1152.jpg" class="rounded img-fluid" alt="..." />
-    <button class="image-button" onClick={handleNavigation}>Click</button>  </div>
-</div>
-<div class="footerImage">
-  <div class="image-container2">
-    <img src="https://media.istockphoto.com/id/506597420/photo/sanitary-installation.jpg?s=612x612&w=0&k=20&c=3O8c-ZrKqHyOak6obfYsUsV_TV_d0Y_9Is3c4v_Uaso=" class="rounded img-fluid" alt="..." />
-    <button class="image-button" onClick={handleNavigation}>Click</button>  </div>
-</div>
-</div>
-      <div class=" footerDiv">
-<footer class="py-3 my-4 ">
-<ul class="nav justify-content-center border-bottom pb-3 mb-3">
-<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About Us</a></li>
-<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Contact Us</a></li>
-</ul>
-<p class="text-center text-muted">© 2024 He. All rights reserved.</p>
-</footer>
-</div>
+        <div className="text-center p-3 bg-dark text-light">
+          © 2024 HE Home Ease | All Rights Reserved
+        </div>
+      </footer>
     </div>
-    </>
   );
-}
+};
 
 export default Homepage;

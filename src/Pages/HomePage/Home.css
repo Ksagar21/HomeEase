@@ -1,4 +1,4 @@
-full-width-image {
+.full-width-image {
     display: block;
     width: 100%; 
     height: auto; 
@@ -161,7 +161,7 @@ full-width-image {
     cursor: pointer;
   }
   .single-tab {
-    width: 100%;
+    width: 88%;
     padding: 10px;
     text-align: left;
     border-top-left-radius: 10px;
@@ -192,6 +192,14 @@ full-width-image {
     object-fit: cover; 
     border-radius: 15px;
   }
-  .headings{
-    font-weight: bold;
+  .table {
+    border-collapse: collapse; 
   }
+  
+  .table th, .table td {
+    border: none; 
+  }
+  .table tbody tr {
+    border-bottom: none; 
+  }
+  
