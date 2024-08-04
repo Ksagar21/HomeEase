@@ -6,6 +6,8 @@ import Shop from "../../Assets/Rectangle13.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Select from "react-select";
 import "./Services.css";
+import offer from "../../Assets/offer.jpg";
+import offer1 from "../../Assets/offer1.jpg"
 import Carousel from "react-bootstrap/Carousel";
 import Mens from "../../Assets/saloon.png";
 import Navbar from "../navbar/Navbar";
@@ -78,9 +80,24 @@ const Services = () => {
   };
 
   const carouselData = [
-    "https://naturals.in/wp-content/uploads/2024/06/Untitled-design.png",
-    "https://naturals.in/wp-content/uploads/2022/04/sc-4.jpg.webp",
-    "https://naturals.in/wp-content/uploads/2022/04/sc-2.jpg.webp",
+    {
+      imageUrl: offer,
+      title: " Summer Bliss Awaits!",
+      description: "Treat yourself to a rejuvenating spa experience this summer. Enjoy a 10% discount on all women’s spa services. Relax, refresh, and renew!",
+      validity:"Offer valid until August 31, 2024"
+    },
+    {
+      imageUrl: offer1,
+      title: "Complete Home & Garden Cleaning",
+      description: "Book a full house cleaning service and get your garden cleaned for free! Ensure your entire home sparkles. Offer valid till September 20, 2024",
+      validity:""
+    },
+    {
+      imageUrl: "https://naturals.in/wp-content/uploads/2022/04/sc-2.jpg.webp",
+      title: "Ultimate Relaxation with Deep Tissue Massage",
+      description: "1 Experience the ultimate relaxation with our deep tissue massage. Enjoy a 15% discount on body massages. Unwind and feel the tension melt away!",
+      validity:"Offer valid until September 30, 2024"
+    },
   ];
 
 useEffect(() => {
@@ -180,16 +197,17 @@ if(state?.some){
         </div>
 
         <Carousel data-bs-theme="dark" className="container col-9 mt-4">
-          {carouselData.map((imageUrl, index) => (
+          {carouselData.map((item, index) => (
             <Carousel.Item key={index}>
               <img
                 className="d-block w-100 custom-carousel-image"
-                src={imageUrl}
+                src={item.imageUrl}
                 alt={`Slide ${index + 1}`}
               />
               <Carousel.Caption>
-                <h5 className="text-light">Offers {index + 1}</h5>
-                <p className="text-light">Summer Combo Offer lets Book .</p>
+              <h5 className="text">{item.title}</h5>
+              <p className="text">{item.description}</p>
+              <p className="text">{item.validity}</p>
               </Carousel.Caption>
             </Carousel.Item>
           ))}

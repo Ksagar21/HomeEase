@@ -157,44 +157,54 @@ function Homepage() {
       photo: smallimg1,
       name: "John",
       comment:
-        "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint  Velit officia consequat duis enim velit mollit. Exercitation veniam consequat  sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor      do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet  ",
-    },
+       "Excellent assistance! The desired haircut was precisely what I requested from the skilled barber. The reservation procedure went smoothly, and I valued the prompt reminders. I will undoubtedly use HomeEase for all of my grooming requirements." },
     {
       photo: smallimg1,
       name: "John",
       comment:
-        "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint  Velit officia consequat duis enim velit mollit. Exercitation veniam consequat  sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor      do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet  ",
-    },
+      "It was just what I needed—a really soothing body massage. The therapist was knowledgeable and sensitive to my needs. Making a reservation with HomeEase was simple and hassle-free. Strongly advised!"  },
     {
       photo: smallimg1,
       name: "Robert",
-      comment:
-        "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint  Velit officia consequat duis enim velit mollit. Exercitation veniam consequat  sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor      do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet  ",
-    },
+      comment:"HomeEase's fast appliance repair service came to the rescue.My washing machine was swiftly fixed by the skilled technician. The cost was fair, and the entire procedure went smoothly. Great assistance!"
+
+       },
     {
       photo: smallimg1,
       name: "Tony",
       comment:
-        "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint  Velit officia consequat duis enim velit mollit. Exercitation veniam consequat  sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor      do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet  ",
-    },
+      "I'm really happy with HomeEase's house repair services. The handyman was effective and easily fixed all of my problems. Booking and monitoring the service was incredibly simple thanks to the app. Will make use of once again."},
     {
       photo: smallimg1,
       name: "Steve",
       comment:
-        "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint  Velit officia consequat duis enim velit mollit. Exercitation veniam consequat  sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor      do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet  ",
-    },
+      "The furniture assembly service from HomeEase was decent. The professional arrived on time and was courteous. The furniture was assembled correctly, though it took slightly longer than expected. Overall, a satisfactory experience."},
     {
       photo: smallimg1,
       name: "Robert",
       comment:
-        "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint  Velit officia consequat duis enim velit mollit. Exercitation veniam consequat  sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor      do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet  ",
-    },
+     "Thanks to HomeEase, I had a wonderful spa day at home! The therapist was on time, friendly, and offered excellent care. I can already feel my skin getting younger, and I'm excited for my upcoming checkup."},
     {
       photo: smallimg1,
       name: "Mathews",
       comment:
-        "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint  Velit officia consequat duis enim velit mollit. Exercitation veniam consequat  sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor      do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet  ",
-    },
+     "I used HomeEase to schedule a thorough house cleaning, and the outcomes were largely satisfactory. Despite a few omissions, the cleaners performed a fantastic job and showed professionalism. Making reservations via the app was really practical. I'd make use of the service once more."},
+     {
+      photo: smallimg1,
+      name: "John Smith",
+      comment:
+     "I was pleased with HomeEase's painting job. My living room walls look great, and the painters were neat and competent. I'm happy with the result overall, however there were a few small adjustments that needed to be made."}, 
+        {
+      photo: smallimg1,
+      name: "Willams",
+      comment:"I thoroughly cleaned my kitchen and bathroom with HomeEase. Overall, the cleaners performed well and with thoroughness. Although there were certain places that needed cleaning, the service was still worth it because of how convenient it was. I'd think about employing them once more."
+     }, 
+
+     {
+      photo: smallimg1,
+      name: "July",
+      comment:
+     "I had a good experience water proofing with HomeEase. The specialist gave my basement a good solution and was quite knowledgable. Despite the fact that I had to follow up once to confirm the appointment, the service was professional. pleased with the outcome."},
   ];
 
   const whyHomeEasePoints = [
