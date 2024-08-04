@@ -16,6 +16,8 @@ import CheckOut from './Pages/Checkout/CheckOut';
 import Admin from './Pages/Admin/Admin';
 import Bookings from './Pages/Bookings/Bookings';
 import ContactUs from './Pages/ContactUs/Contact';
+import About from './Pages/About/About';
+import ForgotPassword from './Pages/ForgotPassword/Forgotpassword';
 
 function App() {
   const location = useLocation();
@@ -27,7 +29,10 @@ function App() {
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/updatePassword" element={<ForgotPassword />} />
         <Route path="/" element={<Homepage />} /> 
+        <Route path="/about" element={<About />} />
+        <Route path ="/contact" element={<ContactUs />} />
         <Route path="/singleServices/:_id" element={<SingleServices />} />
           <Route path="services" element={<Services />} />
         <Route element={<PrivateRoute />}>
@@ -38,7 +43,7 @@ function App() {
           <Route path="cart" element={<Cart />} />
           <Route path="bookings" element={<Bookings />} />
           <Route path ="/checkout" element={<CheckOut />} />
-          <Route path ="/contact" element={<ContactUs />} />
+         
         </Route>
       </Routes>
     </>

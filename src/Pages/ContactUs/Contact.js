@@ -4,6 +4,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { addcontact } from '../../Services/Api';
 import {toast} from "react-toastify"
+import Navbar from '../navbar/Navbar';
 function ContactUs() {
 
 	function postcontact (values){
@@ -41,6 +42,7 @@ function ContactUs() {
 
   return (
     <>
+	<Navbar/>
      <div class="container d-flex justify-content-center align-items-center">
 	
 	<svg className='svgContact' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 790 563" fill="none">
@@ -394,12 +396,21 @@ function ContactUs() {
         </div>
 
         <div className="text-center mt-4">
-          <button type="submit" className="btn btn-primary" tabIndex="-1">
+          <button type="submit" className="btn btn-primarys" tabIndex="-1">
             Send message
           </button>
         </div>
       </form>
 	
+</div>
+<div class=" footerDiv">
+<footer class=" ">
+<ul class="nav justify-content-center border-bottom pb-3 mb-3">
+<li class="nav-item"><a href="/about" class="nav-link px-2 text-muted">About Us</a></li>
+<li class="nav-item"><a href="/Contact" class="nav-link px-2 text-muted">Contact Us</a></li>
+</ul>
+<p class="text-center text-muted">© 2024 He. All rights reserved.</p>
+</footer>
 </div>
     </>
    

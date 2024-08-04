@@ -1,0 +1,48 @@
+
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  overflow: hidden;
+}
+
+.centered-container {
+  width: 50%; 
+  max-width: 800px; 
+  padding: 20px; 
+  background-color: #f9f9f9; 
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  text-align: center; 
+  overflow-y: auto; 
+  max-height: 90vh; 
+}
+
+.image {
+  width: 60%;
+  margin: 20px 0; 
+}
+
+.page-container{
+  border: 2px solid black;
+}
+
+
+.aboutTxt{
+  font-size: 30px !important;
+}
+
+.content-container {
+  width: 80%; 
+  margin: 0 auto;
+}
+
+.about-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  height: auto;
+}
+

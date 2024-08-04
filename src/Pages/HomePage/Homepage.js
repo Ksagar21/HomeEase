@@ -1,12 +1,12 @@
 import React, { useEffect , useState} from "react";
 import firstimg from "../../Assets/HomePage/High coziness.png";
 import secondImg from "../../Assets/HomePage/image 22.png";
-import smallimg1 from "../../Assets/HomePage/womenssaloon.png";
+import smallimg1 from "../../Assets/HomePage/spa.jpg";
 import heart from "../../Assets/HomePage/Frame 49.png";
-import acservice from "../../Assets/HomePage/AcService.png";
-import menssaloon from "../../Assets/HomePage/MensSaloon.png";
-import painting from "../../Assets/HomePage/painting.png";
-import electric from "../../Assets/HomePage/Rectangle 20.png";
+import acservice from "../../Assets/HomePage/Ac service.png";
+import menssaloon from "../../Assets/HomePage/salon.jpg";
+import painting from "../../Assets/HomePage/applied.jpg";
+import electric from "../../Assets/HomePage/homerepair.jpg";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Homepage.css";
 import Slider from "react-slick";
@@ -38,10 +38,27 @@ function Homepage() {
 
   const [inputValue, setInputValue] = useState('');
   const [options, setOptions] = useState([
-    { value: 'Chennai', label: 'Chennai' },
-    { value: 'Coimbatore', label: 'Coimbatore' },
-    { value: 'Salem', label: 'Salem' },
+    { value: 'Dublin City', label: 'Dublin City' },
+    { value: 'Adamstown', label: 'Adamstown' },
+    { value: 'Blanchardstown', label: 'Blanchardstown' },
+    { value: 'Castleknock', label: 'Castleknock' },
+    { value: 'Citywest', label: 'Citywest' },
+    { value: 'Clondalkin', label: 'Clondalkin' },
+    { value: 'Dún Laoghaire', label: 'Dún Laoghaire' },
+    { value: 'Finglas', label: 'Finglas' },
+    { value: 'Howth', label: 'Howth' },
+    { value: 'Killiney', label: 'Killiney' },
+    { value: 'Lucan', label: 'Lucan' },
+    { value: 'Newcastle', label: 'Newcastle' },
+    { value: 'Ongar', label: 'Ongar' },
+    { value: 'Sandyford', label: 'Sandyford' },
+    { value: 'Sandymount', label: 'Sandymount' },
+    { value: 'Smithfield', label: 'Smithfield' },
+    { value: 'Swords', label: 'Swords' },
+    { value: 'Tallaght', label: 'Tallaght' },
+    { value: 'Walkinstown', label: 'Walkinstown' }
   ]);
+  
 
   const handleInputChange = (newValue) => {
     setInputValue(newValue);
@@ -120,10 +137,10 @@ function Homepage() {
 
 
   const secondGrid = [
-    { img: smallimg1,name:"Women's Spa" },
-    { img: menssaloon,name:"Men's Saloon" },
-    { img: acservice,name:"AC Service" },
-    { img: painting ,name:"Painting"},
+    { img: smallimg1,name:"Female Spa" },
+    { img: menssaloon,name:"Mens Salon" },
+    { img: electric,name:"Appliance Repair & Service" },
+    { img: painting ,name:"Home Repair & Installation"},
   ];
 
   const forthGrid = [
@@ -137,43 +154,43 @@ function Homepage() {
   const review = [
     {
       photo: smallimg1,
-      name: "Gopi",
+      name: "John",
       comment:
         "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint  Velit officia consequat duis enim velit mollit. Exercitation veniam consequat  sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor      do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet  ",
     },
     {
       photo: smallimg1,
-      name: "Gopi",
+      name: "John",
       comment:
         "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint  Velit officia consequat duis enim velit mollit. Exercitation veniam consequat  sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor      do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet  ",
     },
     {
       photo: smallimg1,
-      name: "Gopi",
+      name: "Robert",
       comment:
         "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint  Velit officia consequat duis enim velit mollit. Exercitation veniam consequat  sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor      do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet  ",
     },
     {
       photo: smallimg1,
-      name: "Gopi",
+      name: "Tony",
       comment:
         "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint  Velit officia consequat duis enim velit mollit. Exercitation veniam consequat  sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor      do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet  ",
     },
     {
       photo: smallimg1,
-      name: "Gopi",
+      name: "Steve",
       comment:
         "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint  Velit officia consequat duis enim velit mollit. Exercitation veniam consequat  sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor      do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet  ",
     },
     {
       photo: smallimg1,
-      name: "Gopi",
+      name: "Robert",
       comment:
         "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint  Velit officia consequat duis enim velit mollit. Exercitation veniam consequat  sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor      do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet  ",
     },
     {
       photo: smallimg1,
-      name: "Gopi",
+      name: "Mathews",
       comment:
         "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint  Velit officia consequat duis enim velit mollit. Exercitation veniam consequat  sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor      do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet  ",
     },
@@ -193,7 +210,7 @@ function Homepage() {
     <div className="container-fluid">
       <div className="d-flex flex-column flex-md-column justify-content-around align-items-center">
         <div className="col-8 mt-5 ">
-          <span className="welcomeTag gradient-text">Welcome to He ! {sessionStorage.getItem('username')?sessionStorage.getItem('username'):""}</span>
+          <span className="welcomeTag gradient-text">Welcome to HomeEase ! {sessionStorage.getItem('username')?sessionStorage.getItem('username'):""}</span>
           <Select
       components={customComponents}
       inputValue={inputValue}
@@ -202,7 +219,7 @@ function Homepage() {
       options={options}
       isClearable
       isSearchable
-      placeholder="Search for Services"
+      placeholder="Search for Location"
       noOptionsMessage={() => 'Type to add new value'}
       className="selectBar"
     />
@@ -254,7 +271,9 @@ function Homepage() {
               key={index}
               className="img-container small-img-container position-relative"
             >
-              <Link to ="/services">
+               <Link 
+        to="/services" state={{some:item.name}}
+      >
               <div className="mb-4">
                 <img
                   src={item.img}
@@ -269,19 +288,12 @@ function Homepage() {
           ))}
         </div>
       </div>
-
-
       <div className="container-fluid reviewTab">
         <span className="subText">Feedback</span>
         <div className="slider-container">
           <Slider {...settings} className="mt-5">
             {review.map((item, index) => (
               <div className="reviewBox">
-                <img
-                  src={item.photo}
-                  className="slider-img"
-                  alt="Description"
-                />
                 <p className="reviewName">{item.name}</p>
                 <p className="reviewComment">{item.comment}</p>
               </div>
@@ -301,19 +313,19 @@ function Homepage() {
 <div class="footerImage">
   <div class="image-container1">
     <img src="https://www.nerdwallet.com/assets/blog/wp-content/uploads/2017/10/GettyImages-947995974-1920x1152.jpg" class="rounded img-fluid" alt="..." />
-    <button class="image-button" onClick={handleNavigation}>Click</button>  </div>
+    <button class="image-button" onClick={handleNavigation}>Explore Personal Care</button>  </div>
 </div>
 <div class="footerImage">
   <div class="image-container2">
     <img src="https://media.istockphoto.com/id/506597420/photo/sanitary-installation.jpg?s=612x612&w=0&k=20&c=3O8c-ZrKqHyOak6obfYsUsV_TV_d0Y_9Is3c4v_Uaso=" class="rounded img-fluid" alt="..." />
-    <button class="image-button" onClick={handleNavigation}>Click</button>  </div>
+    <button class="image-button" onClick={handleNavigation}>Explore Home Care</button>  </div>
 </div>
 </div>
       <div class=" footerDiv">
 <footer class="py-3 my-4 ">
 <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About Us</a></li>
-<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Contact Us</a></li>
+<li class="nav-item"><a href="/about" class="nav-link px-2 text-muted">About Us</a></li>
+<li class="nav-item"><a href="/Contact" class="nav-link px-2 text-muted">Contact Us</a></li>
 </ul>
 <p class="text-center text-muted">© 2024 He. All rights reserved.</p>
 </footer>

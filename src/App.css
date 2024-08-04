@@ -42,4 +42,11 @@
   src: url(./Assets/font/Causten-SemiBold.otf);
   font-weight: semi-bold;
 }
+.btn {
+  background-color: #636B2F !important;
+}
 
+.btn:hover{
+  background-color: white !important;
+  color:black !important
+}

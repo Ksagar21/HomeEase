@@ -3,7 +3,7 @@ import axios from "axios";
 import "../Admin/Admin.css";
 import { getProviders, verifyprovider } from "../../Services/Api";
 
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 const VerificationTable = () => {
   const [data, setData] = useState([]);
@@ -41,18 +41,18 @@ const VerificationTable = () => {
     setIsModalOpen(false);
     setSelectedRow(null);
   };
-  const handleApprove = (item,isverified) => {
+  const handleApprove = (item, isverified) => {
     const payload = {
       emailId: item.shopEmail,
-      isverified:isverified,
+      isverified: isverified,
     };
     verifyprovider(payload)
-    .then((res) => {
-      toast.success(res.data.message, "res");
-      getProvidersAPI();
-    })
-    .catch(() => {});
-  }
+      .then((res) => {
+        toast.success(res.data.message, "res");
+        getProvidersAPI();
+      })
+      .catch(() => {});
+  };
 
   return (
     <>
@@ -75,10 +75,20 @@ const VerificationTable = () => {
               <td>{item.category}</td>
 
               <td>
-                <button type="button" className="btn btn-primary" onClick={()=>handleApprove(item,true)}>
+                <button
+                  type="button"
+               
+                  className="btn btn-primary approve"
+                  onClick={() => handleApprove(item, true)}
+                >
                   Approve
                 </button>
-                <button type="button" className="btn btn-secondary"onClick={()=>handleApprove(item,false)} >
+                <button
+                  type="button"
+                  
+                  className="btn btn-secondary reject"
+                  onClick={() => handleApprove(item, false)}
+                >
                   Decline
                 </button>
               </td>

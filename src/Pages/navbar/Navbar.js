@@ -6,7 +6,7 @@ import { IoCart } from "react-icons/io5";
 import { Link, useLocation } from "react-router-dom";
 import { getcart } from "../../Services/Api";
 import { useNavigate } from "react-router-dom";
-
+import logo from "../../Assets/HE.png"
 const Navbar = (props) => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -37,18 +37,16 @@ const Navbar = (props) => {
         console.log(err);
       });
   }
-
+  const openRegisterPage = () => {
+    window.open("http://demotestapp2.s3-website-ap-southeast-2.amazonaws.com/", "_blank");
+  };
   return (
     <>
       <nav className="navbar navbar-light bg-light">
         <div className="container-fluid">
         <Link to="/" className="nav-link">
           <div className="d-flex align-items-center">
-            <div className="navbar-brand">HE</div>
-            <div className="row">
-              <span className="brand-name ">Home</span>
-              <span className="brand-name ">Ease</span>
-            </div>
+          <img src={logo} style={{width:"60px" , margin:"0 15px"}}></img>
           </div>
           </Link>
 
@@ -61,7 +59,7 @@ const Navbar = (props) => {
               ""
             ) : (
               
-              <button className="btn btn-outline-success">
+              <button className="btn btn-outline-success" onClick={openRegisterPage}>
                 Register for Service Provider
               </button>
             )}
@@ -74,15 +72,20 @@ const Navbar = (props) => {
             </button>
 
             <div className="iconsDiv">
-              {location.pathname !== "/" && (
-                <Link to="/bookings">
+              {email  && (
+                 <Link to="/bookings" className="nav-link">
+                <button
+              className="btn btn-outline-success">
+               
                   <div className="user-select-none ">Bookings</div>
+                
+                </button>
                 </Link>
               )}
-              <Link to="/Contact" className="nav-link">
+              {/* <Link to="/Contact" className="nav-link">
                 <div className="user-select-none  ">Contact Us</div>
-              </Link>
-              <div className="icons ">Help</div>
+              </Link> */}
+       
               <div className="icons cart-icon">
                 <Link to="/cart">
                   <span className="cart-number">

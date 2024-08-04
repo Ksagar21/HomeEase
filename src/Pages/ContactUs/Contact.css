@@ -40,9 +40,9 @@
   }
 }
 
-.container {
+/* .container {
 	height: 100vh;
-}
+} */
 
 .formContact {
 	min-width: 25rem;
@@ -100,7 +100,7 @@
   }
 }
 
-.btn.btn-primary {
+.btn.btn-primarys {
   font-family: 'Quicksand', sans-serif;
 	font-weight: bold;
   height: 2.5rem;
@@ -113,7 +113,7 @@
   transition: all 0.3s ease-in-out;
 }
 
-.btn.btn-primary:hover:enabled {
+.btn.btn-primarys:hover:enabled {
   box-shadow: 0 0.5em 0.5em -0.4em #ff923cba;
   background-size: 100% 100%;
   transform: translateY(-0.15em);

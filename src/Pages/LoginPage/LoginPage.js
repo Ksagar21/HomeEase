@@ -144,9 +144,9 @@ function LoginPage() {
                     />
                   </div>
 
-                  {/* <div className="col-lg-8 d-flex justify-content-end">
-                    <a href="#!" className="text-body inputLabels">Forgot Your password</a>
-                  </div> */}
+                  <div className="col-lg-8 d-flex justify-content-end">
+                    <a href="updatePassword" className="text-body inputLabels">Update Your password</a>
+                  </div>
 
                   <div className="col-lg-8 text-lg-start mt-4 pt-2">
                     <button
@@ -166,8 +166,11 @@ function LoginPage() {
                 </Form>
               )}
             </Formik>
+            <span className="">Or</span>
             <GoogleLogin
         buttonText="Login with Google"
+        className="w-100"
+        style={{ paddingLeft: "2.5rem", paddingRight: "2.5rem" }}
         onSuccess={onSuccess}
         onFailure={onFailure}
         cookiePolicy={'single_host_origin'}

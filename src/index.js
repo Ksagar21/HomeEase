@@ -14,7 +14,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
     <ToastContainer/>
-    <GoogleOAuthProvider clientId="1000480410058-i5ja73utn7f74rtneo63si328harsukb.apps.googleusercontent.com">
+    <GoogleOAuthProvider clientId="767364663014-5mkjcuirhnuhhk5u0iaiajv4oribikfa.apps.googleusercontent.com">
     <App />
     </GoogleOAuthProvider>
     </BrowserRouter>

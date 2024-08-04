@@ -5,12 +5,12 @@ import { FiMinus, FiPlus } from "react-icons/fi";
 import { HiTrash } from "react-icons/hi2";
 import { deleteCart, getcart ,getbookings } from '../../Services/Api';
 import { toast } from 'react-toastify';
-import { format } from 'date-fns';
+import { format, isToday } from 'date-fns';
 import Navbar from '../navbar/Navbar';
 import { useNavigate } from 'react-router-dom';
 
 function Bookings() {            
-  const headings = ['Booking ID', 'Service Provider Email','Services', 'Date','Total'];
+  const headings = ['Booking ID', 'Service Provider Email','Services','Status', 'Date','Total'];
 const navigate = useNavigate()
   const [data, setData] = useState([]);
   const [total, setTotal] = useState(0)
@@ -18,7 +18,8 @@ const navigate = useNavigate()
     getcartApi();
   }, []);
   function getcartApi (){
-    getbookings(sessionStorage.getItem('email'))
+    const query =`?userEmail=`+sessionStorage.getItem('email')
+    getbookings(query)
         .then((res) => {
           console.log(res.data.lists);
           setData(res.data.lists);
@@ -27,6 +28,11 @@ const navigate = useNavigate()
         .catch((err) => {
           console.log(err);
         });
+  }
+  function getStatus(date) {
+    const today = new Date();
+    const bookingDate = new Date(date);
+    return isToday(bookingDate) || bookingDate > today ? 'Active' : 'Inactive';
   }
   function deleteCartApi(data){
     console.log(data)
@@ -86,6 +92,11 @@ const navigate = useNavigate()
                     <FiPlus className=''/>
                   </div>
                 </td> */}
+                 <td className='td'>
+                    {item.servicesBooked.map((service, i) => (
+                      <div key={i} style={{color:getStatus(service.date)==="Active"?"blue":"gray"}}>{getStatus(service.date)}</div>
+                    ))}
+                </td>
                 <td className='td'> {item.servicesBooked.map((service, i) => (
                   <div key={i}>
                     {" "}
@@ -95,7 +106,7 @@ const navigate = useNavigate()
                     {service.time ? format(service.time, "h:mm aa") : ""}
                   </div>
                 ))}</td>
-                <td className='td'>{item.paymentDetails.amount}</td>
+                <td className='td'>{item.paymentDetails.amount+10}</td>
               </tr>
             ))}
           </tbody>
@@ -119,8 +130,8 @@ const navigate = useNavigate()
     <div class=" footerDiv">
 <footer class="py-3 my-4 ">
 <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About Us</a></li>
-<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Contact Us</a></li>
+<li class="nav-item"><a href="/about" class="nav-link px-2 text-muted">About Us</a></li>
+<li class="nav-item"><a href="/contact" class="nav-link px-2 text-muted">Contact Us</a></li>
 </ul>
 <p class="text-center text-muted">© 2024 He. All rights reserved.</p>
 </footer>

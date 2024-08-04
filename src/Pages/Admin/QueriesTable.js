@@ -46,13 +46,13 @@ const [contacts, setContacts] = useState()
         </tr>
       </thead>
       <tbody>
-        {contacts.map((row, index) => (
+        {contacts?.map((row, index) => (
           <tr key={index} onClick={() => handleRowClick(row)}>
             <td>{index+1}</td>
             <td>{row.name}</td>
             <td>{row.email}</td>
             <td>{row.message}</td>
-            <td>-</td>
+            <td onClick={()=>window.location.href = 'mailto:'+row.email}>Reply</td>
           </tr>
         ))}
       </tbody>

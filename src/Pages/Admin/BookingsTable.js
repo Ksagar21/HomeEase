@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../Admin/Admin.css";
-import {format} from "date-fns"
+import {format, isToday} from "date-fns"
 import { getbookings } from "../../Services/Api";
 const BookingsTable = () => {
   const [selectedRow, setSelectedRow] = useState(null);
@@ -23,6 +23,7 @@ function getBookingsApi() {
     "Booking Id",
     "User Name",
     "Service Provider",
+    "Status",
     "Date",
     "Price"
   ];
@@ -40,7 +41,11 @@ function getBookingsApi() {
 useEffect(() => {
   getBookingsApi()
 }, [])
-
+function getStatus(date) {
+  const today = new Date();
+  const bookingDate = new Date(date);
+  return isToday(bookingDate) || bookingDate > today ? 'Active' : 'Inactive';
+}
   return (
     <>
       <table className="table table-striped border">
@@ -70,7 +75,11 @@ useEffect(() => {
                   <div key={i}>{service.service.serviceName}</div>
                 ))}
               </td>
-
+              <td className='td'>
+                    {item.servicesBooked.map((service, i) => (
+                      <div key={i} style={{color:getStatus(service.date)==="Active"?"blue":"gray"}}>{getStatus(service.date)}</div>
+                    ))}
+                </td>
               <td>
                 {" "}
                 {item.servicesBooked.map((service, i) => (
@@ -83,7 +92,7 @@ useEffect(() => {
                   </div>
                 ))}
               </td>
-              <td>{item.paymentDetails.amount}</td>
+              <td>{item.paymentDetails.amount +10}</td>
             </tr>
           ))}
         </tbody>

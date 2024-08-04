@@ -28,3 +28,12 @@
     cursor: pointer;
   }
    */
+
+.approve {
+  background-color: green !important;
+  color: white !important;
+}
+.reject {
+  background-color: red !important;
+  color: white !important;
+}

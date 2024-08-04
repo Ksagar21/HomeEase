@@ -2,13 +2,27 @@
     border: 1px solid black ;
 } */
 
-.ServiceBorder{
-    border: 1px solid #ddd;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    padding: 20px ;
-    border-radius: 5px; 
-    background-color: #fff; 
-  }
+.ServiceBorder {
+  width: 250px; 
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  margin: 3px;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+  border-radius: 5px; 
+  background-color: #fff;
+}
+.ServiceImage {
+  width: 56px; 
+}
+.ServiceText {
+  margin-top: 8px; 
+  text-align: center; 
+}
   
   .custom-carousel-image {
     max-height: 350px; 

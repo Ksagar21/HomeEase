@@ -3,27 +3,34 @@ import firstimg from "../../Assets/HomePage/High coziness.png";
 import { Modal, Button } from "react-bootstrap";
 import { getServices } from "../../Services/Api";
 import Shop from "../../Assets/Rectangle13.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Select from "react-select";
 import "./Services.css";
 import Carousel from "react-bootstrap/Carousel";
 import Mens from "../../Assets/saloon.png";
 import Navbar from "../navbar/Navbar";
-
+import barber from "../../Assets/Services/barbershop.png";
+import makeup from "../../Assets/Services/makeup.png";
+import varnish from "../../Assets/Services/varnish.png";
+import products from "../../Assets/Services/products.png";
+import appliancerepair from "../../Assets/Services/appliance-repair.png";
+import renovation from "../../Assets/Services/renovation.png";
 const Services = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const {state}= location;
   const services = [
     {
-      serviceName: "Mens Saloon",
+      serviceName: "Mens Salon",
       value: "menssaloon",
       categories: ["HairCut", "Massage"],
-      image: "",
+      image: barber,
     },
     {
-      serviceName: "Female",
+      serviceName: "Female Spa",
       value: "female",
       categories: ["Saloon", "Spa", "Makeup & Styling", "Hair Studio"],
-      image: "",
+      image: makeup,
     },
     {
       serviceName: "Appliance Repair & Service",
@@ -38,25 +45,25 @@ const Services = () => {
         "Television",
         "Washing Machine",
       ],
-      image: "",
+      image: appliancerepair,
     },
     {
       serviceName: "Cleaning & Pest Control",
       value: "cleaning",
       categories: ["Bathroom & Kitchen", "Full Home","Sofa & Carpet","Jermit Control","Pest Control"],
-      image: "",
+      image: products,
     },
     {
       serviceName: "Home Repair & Installation",
       value: "homerepair",
       categories: ["Electrician", "Plumber","Carpenter","JKEA installation","Furniture Assembly"],
-      image: "",
+      image: renovation,
     },
     {
       serviceName: "Painting & Water Profing",
-      value: "menssaloon",
+      value: "painting",
       categories: ["Full Home", "Few Rooms","Wall Panel"],
-      image: "",
+      image: varnish,
     },
   ];
   const categories = {
@@ -75,6 +82,15 @@ const Services = () => {
     "https://naturals.in/wp-content/uploads/2022/04/sc-2.jpg.webp",
   ];
 
+useEffect(() => {
+if(state?.some){
+  const data = services.find((service)=>service.serviceName=state.some);
+  console.log(data)
+  setselectedData(data);
+  setSelectedCategory(data.value);
+  setShowModal(true)
+}
+}, [])
   const [showModal, setShowModal] = useState(false);
   const [selectedData, setselectedData] = useState([])
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -109,9 +125,11 @@ const Services = () => {
   const [inputValue, setInputValue] = useState("");
   const [options, setOptions] = useState([
     { label: "Mens Saloon", value: "menssaloon" },
-    { label: "Womens Spa", value: "womensspa" },
-    { label: "AC Service", value: "acservice" },
-    { label: "Painting", value: "painting" },
+    { label: "Female Spa", value: "female" },
+    { label: "Appliance Repair & Service", value: "service" },
+    { label: "Cleaning & Pest Control", value: "cleaning" },
+    { label: "Home Repair & Installation", value: "homerepair" },
+    { label: "Painting & Water Profing", value: "painting" }
   ]);
 
   const handleInputChange = (newValue) => {
@@ -133,8 +151,7 @@ const Services = () => {
       <div className="container-fluid">
         <div className="d-flex flex-column flex-md-column justify-content-around align-items-center">
           <div className="col-9 mt-5">
-            <span className="welcomeTag gradient-text">Welcome to He! {sessionStorage.getItem('username')?sessionStorage.getItem('username'):""}</span>
-            <Select
+           <Select
               components={customComponents}
               inputValue={inputValue}
               onInputChange={handleInputChange}
@@ -146,18 +163,18 @@ const Services = () => {
               noOptionsMessage={() => "Type to add new value"}
               className="selectBar"
             />
-            <div className="d-flex justify-content-between mt-2">
-              {services.map((item,index) => (
-                <div
-                  className="d-flex flex-row align-items-center ServiceBorder"
-                  key={index}
-                  onClick={() => handleModalOpen(item)}
-                >
-                  <img src={Mens} alt="" style={{ maxWidth: "56px" }} />
-                  <p style={{ cursor: "pointer" }}>{item.serviceName}</p>
-                </div>
-              ))}
-            </div>
+           <div className="d-flex  mt-2">
+  {services.map((item, index) => (
+    <div
+      className="d-flex flex-column align-items-center ServiceBorder"
+      key={index}
+      onClick={() => handleModalOpen(item)}
+    >
+      <img src={item.image} alt="" className="ServiceImage" />
+      <p className="ServiceText">{item.serviceName}</p>
+    </div>
+  ))}
+</div>
           </div>
         </div>
 
@@ -256,8 +273,8 @@ const Services = () => {
       <div class=" footerDiv">
 <footer class="py-3 my-4 ">
 <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About Us</a></li>
-<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Contact Us</a></li>
+<li class="nav-item"><a href="/about" class="nav-link px-2 text-muted">About Us</a></li>
+<li class="nav-item"><a href="/contact" class="nav-link px-2 text-muted">Contact Us</a></li>
 </ul>
 <p class="text-center text-muted">© 2024 He. All rights reserved.</p>
 </footer>

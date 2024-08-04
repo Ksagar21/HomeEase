@@ -108,11 +108,12 @@ const CheckOut = () => {
       .max(50, "State must be less than 50 characters")
       .required("State is required"),
     postalCode: Yup.string()
-      .matches(/^[0-9]{6}$/, "Postal code must be exactly 6 digits")
-      .required("Postal code is required"),
-    phone: Yup.string()
-      .matches(/^[0-9]{10}$/, "Phone number must be exactly 10 digits")
+      .matches(/^[0-9]{6}$/, "Eir-Code must be exactly 6 digits")
+      .required("Eir-Code is required"),
+      phone: Yup.string()
+       .matches(/^(0\d{9}|\+353\d{9})$/, "Phone number must be a valid Irish phone number (e.g., 0XXXXXXXXX or +353XXXXXXXXX)")
       .required("Phone number is required"),
+    
     cardNumber: Yup.string()
       .matches(/^[0-9]{16}$/, "Card Number must be exactly 16 digits")
       .required("Card Number is required"),
@@ -242,9 +243,9 @@ const CheckOut = () => {
                 </div>
                 <div className="d-flex flex-wrap inputFields">
                   <div className="input-pair">
-                    <label className="inputLabel">Postal Code*</label>
+                    <label className="inputLabel">Eir-Code*</label>
                     <input
-                      placeholder="Postal Code"
+                      placeholder="Eir-Code"
                       className="inputBox"
                       value={formValue.postalCode}
                       name="postalCode"
@@ -284,7 +285,7 @@ const CheckOut = () => {
                   </tr>
                 ))}
               </tbody>
-             Total :  {total}
+             Total(With Platform Fee) :  {total +10}
             </table>
           </div>
         </div>

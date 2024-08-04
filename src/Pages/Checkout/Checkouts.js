@@ -93,10 +93,10 @@ const CheckOut = () => {
     address: Yup.string().required("Street address is required"),
     city: Yup.string().required("City is required"),
     state: Yup.string().required("State is required"),
-    postalCode: Yup.string().required("Postal code is required"),
+    postalCode: Yup.string().required("Eir-Code is required"),
     phone: Yup.string()
-      .matches(/^[0-9]{10}$/, "Phone number must be exactly 10 digits")
-      .required("Phone number is required"),
+   .matches(/^(0\d{9}|\+353\d{9})$/, "Phone number must be a valid Irish phone number (e.g., 0XXXXXXXXX or +353XXXXXXXXX)")
+  .required("Phone number is required"),
     cardNumber: Yup.string().required("Card Number is required"),
     cardName: Yup.string().required("Name on Card is required"),
     cardExpiry: Yup.string().required("Expiration Date is required"),
@@ -216,9 +216,9 @@ const CheckOut = () => {
                 </div>
                 <div className="d-flex flex-wrap inputFields">
                   <div className="input-pair">
-                    <label className="inputLabel">Postal Code*</label>
+                    <label className="inputLabel">Eir-Code*</label>
                     <input
-                      placeholder="Postal Code"
+                      placeholder="Eir-Code"
                       className="inputBox"
                       value={formValue.postalCode}
                       name="postalCode"

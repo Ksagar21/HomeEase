@@ -145,8 +145,8 @@ const [file, setFile] = useState(null);
 
           <div className='d-flex flex-wrap inputFields'>
             <div className='input-pair'>
-              <label className='inputLabel'>Postal Code*</label>
-              <input placeholder='Postal Code' className='inputBox' value={formValue.postalCode} name="postalCode" onChange={toggleChange} />
+              <label className='inputLabel'>Eir-Code*</label>
+              <input placeholder='Eir-Code' className='inputBox' value={formValue.postalCode} name="postalCode" onChange={toggleChange} />
             </div>
           </div>
 

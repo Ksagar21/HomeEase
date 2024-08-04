@@ -50,8 +50,8 @@
   }
 
   .imgdimension3{
-    width: 282px;
-    height: 370px;
+    width: 282px !important;
+    height: 370px !important;
   }
 
   .img-container {
@@ -158,26 +158,28 @@ color: #807D7E;
 }
 
 .image-row {
-  margin-top: 20px;
+  margin-top: 40px;
   display: flex;
-  justify-content: space-around; /* Center the images horizontally */
+  justify-content: space-evenly; /* Center the images horizontally */
   align-items: center; /* Center the images vertically */
 }
 
 .image-button {
   position: absolute;
-  top: 50%;  /* Center the button vertically */
-  left: 50%;  /* Center the button horizontally */
+  width:50%;
+  top: 80%;  /* Center the button vertically */
+  left: 70%;  /* Center the button horizontally */
   transform: translate(-50%, -50%);  /* Adjust positioning as needed */
-  background-color: rgba(0, 0, 0, 0.5);  /* Semi-transparent background */
-  color: white;
+  background-color: white;  /* Semi-transparent background */
+  color: black;
   padding: 10px 20px;
   border: none;
   cursor: pointer;  /* Change cursor to indicate clickability */
 }
 
 .image-button:hover {
-  background-color: rgba(0, 0, 0, 0.7);  /* Darken on hover */
+  background-color: black; 
+  color:white /* Darken on hover */
 }
 
 

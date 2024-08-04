@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GETSHOPSBYCATEGORY ,GETSERVICES, ADDTOCART, LOGINUSER, SIGNUPUSER, GETCART, DELETECART, CONFIRMBOOKING, GETBOOKINGS, GETPROVIDERS, VERIFYPROVIDER, GET_CONTACTS, ADDCONTACT } from "./Urls";
+import { GETSHOPSBYCATEGORY ,GETSERVICES, ADDTOCART, LOGINUSER, SIGNUPUSER, GETCART, DELETECART, CONFIRMBOOKING, GETBOOKINGS, GETPROVIDERS, VERIFYPROVIDER, GET_CONTACTS, ADDCONTACT, FORGOT_PASSWORD } from "./Urls";
 
 export const GetShops = async (data) => {
     const res = await axios.get(GETSHOPSBYCATEGORY+data);
@@ -14,9 +14,13 @@ export const GetShops = async (data) => {
     const res = await axios.get(GETPROVIDERS+req);
     return res
   }
+  export const Forgotpassword= async (data) => {const res = await axios.put(FORGOT_PASSWORD,data);
+    return res
+  }
   export const getbookings = async (data) => {
     console.log(data,"dd")
-    const res = await axios.get(GETBOOKINGS);
+const payload = data?data:""
+    const res = await axios.get(GETBOOKINGS+payload);
     return res;
   };
   export const getcart= async (data) => {const res = await axios.get(GETCART+data);

@@ -77,19 +77,7 @@ const navigate = useNavigate()
                     <p className='greyTexts'>Use 6 or more characters with a mix of letters, numbers & symbols</p>
                   </div>
 
-                  <div className="col-lg-8 d-flex flex-column">
-                    {/* <p>Agree to our Terms of use and Privacy Policy </p>
-                    <p>Subscribe to our monthly newsletter </p> */}
-                    <div>
-                      <input type='checkbox' />
-                      <span className='mx-2 greyTexts '>Agree to our <span className='underline greyTexts'>Terms of use</span> and <span className='underline'>Privacy Policy</span></span>
-                    </div>
-                    <div>
-                      <input type='checkbox' />
-                      <span className='mx-2 greyTexts'>Subscribe to our monthly newsletter</span>
-                    </div>
-                  </div>
-
+                  
                   <div className="col-lg-8 text-lg-start mt-4 pt-2">
                     <button type="submit" className="btn submitBtn btn-lg" style={{paddingLeft: "2.5rem", paddingRight: "2.5rem"}}>Sign up</button>
                     <p className="small mt-2 pt-1 mb-0 inputLabels ">Already have an account? <a href="login" className="link-danger">Login</a></p>
