@@ -38,8 +38,8 @@ const Navbar = (props) => {
       });
   }
   const openRegisterPage = () => {
-    window.open("http://demotestapp2.s3-website-ap-southeast-2.amazonaws.com/", "_blank");
-  };
+  window.open("https://home-ease-6bj9.onrender.com/", "_blank");
+ };
   return (
     <>
       <nav className="navbar navbar-light bg-light">
