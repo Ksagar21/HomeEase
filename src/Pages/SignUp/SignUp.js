@@ -7,7 +7,7 @@ import signupimage from "../../Assets/LoginPageAssets/SignupImage.png"
 import "../SignUp/SignUp.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { signUpApi } from '../../Services/Api';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 import { BiShow } from "react-icons/bi";
 import { BiHide } from "react-icons/bi";
 import { toast } from 'react-toastify';
@@ -80,7 +80,7 @@ const navigate = useNavigate()
                   
                   <div className="col-lg-8 text-lg-start mt-4 pt-2">
                     <button type="submit" className="btn submitBtn btn-lg" style={{paddingLeft: "2.5rem", paddingRight: "2.5rem"}}>Sign up</button>
-                    <p className="small mt-2 pt-1 mb-0 inputLabels ">Already have an account? <a href="login" className="link-danger">Login</a></p>
+                    <p className="small mt-2 pt-1 mb-0 inputLabels ">Already have an account? <Link to="/login" className="nav-link"><a href="" className="link-danger">Login</a></Link></p>
                   </div>
                 </Form>
               )}

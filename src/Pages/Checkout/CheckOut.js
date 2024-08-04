@@ -108,7 +108,6 @@ const CheckOut = () => {
       .max(50, "State must be less than 50 characters")
       .required("State is required"),
     postalCode: Yup.string()
-      .matches(/^[0-9]{6}$/, "Eir-Code must be exactly 6 digits")
       .required("Eir-Code is required"),
       phone: Yup.string()
        .matches(/^(0\d{9}|\+353\d{9})$/, "Phone number must be a valid Irish phone number (e.g., 0XXXXXXXXX or +353XXXXXXXXX)")

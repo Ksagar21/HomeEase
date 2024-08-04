@@ -8,6 +8,7 @@ import { toast } from 'react-toastify';
 import { format, isToday } from 'date-fns';
 import Navbar from '../navbar/Navbar';
 import { useNavigate } from 'react-router-dom';
+import Footer from '../Footer/Footer';
 
 function Bookings() {            
   const headings = ['Booking ID', 'Service Provider Email','Services','Status', 'Date','Total'];
@@ -127,15 +128,7 @@ const navigate = useNavigate()
 </div>
 
     </div>
-    <div class=" footerDiv">
-<footer class="py-3 my-4 ">
-<ul class="nav justify-content-center border-bottom pb-3 mb-3">
-<li class="nav-item"><a href="/about" class="nav-link px-2 text-muted">About Us</a></li>
-<li class="nav-item"><a href="/contact" class="nav-link px-2 text-muted">Contact Us</a></li>
-</ul>
-<p class="text-center text-muted">© 2024 He. All rights reserved.</p>
-</footer>
-</div>
+ <Footer/>
     </>
   );
 }

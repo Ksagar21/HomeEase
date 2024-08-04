@@ -42,36 +42,43 @@ const Navbar = (props) => {
  };
   return (
     <>
-      <nav className="navbar navbar-light bg-light">
-        <div className="container-fluid">
-        <Link to="/" className="nav-link">
-          <div className="d-flex align-items-center">
-          <img src={logo} style={{width:"60px" , margin:"0 15px"}}></img>
-          </div>
-          </Link>
-
-          <form className="d-flex">
-            <Link to="/services">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+       <Link to="/" className="nav-link">
+           <div className="d-flex align-items-center">
+           <img src={logo} style={{width:"60px" , margin:"0 15px"}}></img>
+           </div>
+        </Link>
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-md-auto gap-2">
+        <li class="nav-item rounded">
+          <Link to="/services">
               <button className="btn btn-outline-success">Services</button>
             </Link>
-            {/* <Link to ="http://localhost:3001/"> */}
-            {sessionStorage.getItem("role") === "user" ? (
+        </li>
+        <li class="nav-item rounded">
+        {sessionStorage.getItem("role") === "user" ? (
               ""
             ) : (
-              
               <button className="btn btn-outline-success" onClick={openRegisterPage}>
                 Register for Service Provider
               </button>
             )}
-            {/* </Link> */}
-            <button
+        </li>
+        <li class="nav-item rounded">
+        <button
               className="btn btn-outline-success"
               onClick={handleLoginLogout}
             >
               {email ? "Logout" : "Login/SignUp"}
             </button>
-
-            <div className="iconsDiv">
+        </li>
+        <li class="nav-item dropdown rounded">
+        <div className="iconsDiv">
               {email  && (
                  <Link to="/bookings" className="nav-link">
                 <button
@@ -82,11 +89,12 @@ const Navbar = (props) => {
                 </button>
                 </Link>
               )}
+              
               {/* <Link to="/Contact" className="nav-link">
                 <div className="user-select-none  ">Contact Us</div>
               </Link> */}
        
-              <div className="icons cart-icon">
+              <div className="icons cart-icon mt-3">
                 <Link to="/cart">
                   <span className="cart-number">
                     {props.cart ? props.cart : cartlength}
@@ -95,10 +103,14 @@ const Navbar = (props) => {
                 </Link>
               </div>
             </div>
-          </form>
-        </div>
-      </nav>
+         
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
     </>
+
   );
 };
 

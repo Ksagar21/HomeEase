@@ -158,8 +158,9 @@ color: #807D7E;
 }
 
 .image-row {
-  margin-top: 40px;
+  margin-top: 60px;
   display: flex;
+  gap:30px;
   justify-content: space-evenly; /* Center the images horizontally */
   align-items: center; /* Center the images vertically */
 }
@@ -183,4 +184,31 @@ color: #807D7E;
 }
 
 
+@media  (max-width:950px) {
+  .image-row{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; 
+    align-items: center;
+  }
+  
+  .image-container1 {
+  width: 300px;
+  }
+
+  .image-container2 {
+    width: 300px;
+    }
+
+  .welcomeTag {
+  font-size: 30px;
+    }
+
+    .subText {
+      font-size: 25px;
+      margin-left: 15px;
+        }
+    
+}
 

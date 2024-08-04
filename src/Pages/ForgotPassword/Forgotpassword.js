@@ -5,7 +5,7 @@ import loginimg from "../../../src/Assets/LoginPageAssets/Loginimage.png";
 import "./Forgotpassword.css"
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Forgotpassword, LoginApi } from "../../Services/Api";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { BiShow } from "react-icons/bi";
 import { BiHide } from "react-icons/bi";
@@ -173,9 +173,11 @@ function ForgotPassword() {
                     </button>
                     <p className="small mt-2 pt-1 mb-0 inputLabels">
                     Already have an account? {" "}
-                      <a href="/login" className="link-danger">
+                  <Link to="/login">
+                      <a href="" className="link-danger">
                        Login
                       </a>
+                      </Link>
                     </p>
                   </div>
                 </Form>

@@ -12,6 +12,7 @@ import { BiHide } from "react-icons/bi";
 import { useState } from "react";
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from "jwt-decode";
+import { Link } from "react-router-dom";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email address").required("Required"),
@@ -145,7 +146,9 @@ function LoginPage() {
                   </div>
 
                   <div className="col-lg-8 d-flex justify-content-end">
-                    <a href="updatePassword" className="text-body inputLabels">Update Your password</a>
+                  <Link to="/updatePassword" className="nav-link">
+                    <a href="" className="text-body inputLabels">Update Your password</a>
+                    </Link>
                   </div>
 
                   <div className="col-lg-8 text-lg-start mt-4 pt-2">
@@ -158,9 +161,11 @@ function LoginPage() {
                     </button>
                     <p className="small mt-2 pt-1 mb-0 inputLabels">
                       Don't have an account?{" "}
-                      <a href="/signUp" className="link-danger">
+                      <Link to="/signup">
+                      <a href="" className="link-danger">
                         Sign up
                       </a>
+                      </Link>
                     </p>
                   </div>
                 </Form>

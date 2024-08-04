@@ -18,6 +18,7 @@ import Select from "react-select"
 import Navbar from "../navbar/Navbar";
 import arrow from "../../Assets/HomePage/right-arrow.png"
 import quality from "../../Assets/HomePage/quality.png"
+import Footer from "../Footer/Footer";
 
 function Homepage() {
   const navigate = useNavigate();
@@ -312,24 +313,16 @@ function Homepage() {
 <div className="image-row">
 <div class="footerImage">
   <div class="image-container1">
-    <img src="https://www.nerdwallet.com/assets/blog/wp-content/uploads/2017/10/GettyImages-947995974-1920x1152.jpg" class="rounded img-fluid" alt="..." />
+    <img src="https://www.nerdwallet.com/assets/blog/wp-content/uploads/2017/10/GettyImages-947995974-1920x1152.jpg" class="rounded img-fluid footerimg" alt="..." />
     <button class="image-button" onClick={handleNavigation}>Explore Personal Care</button>  </div>
 </div>
 <div class="footerImage">
   <div class="image-container2">
-    <img src="https://media.istockphoto.com/id/506597420/photo/sanitary-installation.jpg?s=612x612&w=0&k=20&c=3O8c-ZrKqHyOak6obfYsUsV_TV_d0Y_9Is3c4v_Uaso=" class="rounded img-fluid" alt="..." />
+    <img src="https://media.istockphoto.com/id/506597420/photo/sanitary-installation.jpg?s=612x612&w=0&k=20&c=3O8c-ZrKqHyOak6obfYsUsV_TV_d0Y_9Is3c4v_Uaso=" class="rounded img-fluid footerimg" alt="..." />
     <button class="image-button" onClick={handleNavigation}>Explore Home Care</button>  </div>
 </div>
 </div>
-      <div class=" footerDiv">
-<footer class="py-3 my-4 ">
-<ul class="nav justify-content-center border-bottom pb-3 mb-3">
-<li class="nav-item"><a href="/about" class="nav-link px-2 text-muted">About Us</a></li>
-<li class="nav-item"><a href="/Contact" class="nav-link px-2 text-muted">Contact Us</a></li>
-</ul>
-<p class="text-center text-muted">© 2024 He. All rights reserved.</p>
-</footer>
-</div>
+ <Footer/>
     </div>
     </>
   );
