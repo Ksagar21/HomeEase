@@ -95,7 +95,7 @@ const Services = () => {
     {
       imageUrl: "https://naturals.in/wp-content/uploads/2022/04/sc-2.jpg.webp",
       title: "Ultimate Relaxation with Deep Tissue Massage",
-      description: "1 Experience the ultimate relaxation with our deep tissue massage. Enjoy a 15% discount on body massages. Unwind and feel the tension melt away!",
+      description: "Experience the ultimate relaxation with our deep tissue massage. Enjoy a 15% discount on body massages. Unwind and feel the tension melt away!",
       validity:"Offer valid until September 30, 2024"
     },
   ];
