@@ -8,7 +8,7 @@ const Footer = () => {
     <li class="nav-item"><Link to="/about" className="nav-link"><a href="" class="nav-link px-2 text-muted">About Us</a></Link></li>
     <li class="nav-item"><Link to="/contact" className="nav-link"><a href="/contact" class="nav-link px-2 text-muted">Contact Us</a></Link></li>
     </ul>
-    <p class="text-center text-muted">© 2024 He. All rights reserved.</p>
+    <p class="text-center text-muted">© 2024 Home Ease . All rights reserved.</p>
     </footer>
     </div>
   )

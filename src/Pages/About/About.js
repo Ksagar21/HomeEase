@@ -10,7 +10,7 @@ const About = () => {
       <div className="page-container container-fluid">
         <div className="centered-container">
           <p className='text-center mt-5 aboutTxt' style={{fontSize:"40px"}}>About Us</p>
-          <img src="https://static.vecteezy.com/system/resources/previews/010/718/343/non_2x/carpenter-working-in-a-workshop-vector.jpg" alt="About Us" className="image text-center about-imag" />
+          <img  src="https://static.vecteezy.com/system/resources/previews/010/718/343/non_2x/carpenter-working-in-a-workshop-vector.jpg" alt="About Us" className="image text-center about-image" />
           <div className='content-container container'>
           <p style={{fontSize:"20px"}}>Welcome to HomeEase, your one-stop solution for all personal and home care needs. At HomeEase, we are committed to the convenience and excellence that make your life easier and more enjoyable. Our platform connects you with a wide range of professional services, ensuring that whatever you need, we can make it happen efficiently and effectively..</p>
           <p style={{fontSize:"20px"}}>Whether you’re looking for home services, personal care, or specialized maintenance, HomeEase offers a curated selection of top-rated professionals ready to deliver exceptional results. Our user-friendly interface allows you to browse, book, and manage your services seamlessly. Our team is composed of skilled professionals who are passionate about their work and dedicated to providing outstanding service.</p>

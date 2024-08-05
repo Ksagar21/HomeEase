@@ -46,7 +46,7 @@ const Navbar = (props) => {
   <div class="container-fluid">
        <Link to="/" className="nav-link">
            <div className="d-flex align-items-center">
-           <img src={logo} style={{width:"60px" , margin:"0 15px"}}></img>
+           <img src={logo} className="logoHe" style={{ margin:"0 15px"}}></img>
            </div>
         </Link>
     <a class="navbar-brand" href="#"></a>
@@ -55,19 +55,20 @@ const Navbar = (props) => {
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-md-auto gap-2">
-        <li class="nav-item rounded">
-          <Link to="/services">
-              <button className="btn btn-outline-success">Services</button>
-            </Link>
-        </li>
+        
         <li class="nav-item rounded">
         {sessionStorage.getItem("role") === "user" ? (
               ""
             ) : (
               <button className="btn btn-outline-success" onClick={openRegisterPage}>
-                Register for Service Provider
+                Register for Professional
               </button>
             )}
+        </li>
+        <li class="nav-item rounded">
+          <Link to="/services">
+              <button className="btn btn-outline-success">Services</button>
+            </Link>
         </li>
         <li class="nav-item rounded">
         <button
@@ -77,10 +78,9 @@ const Navbar = (props) => {
               {email ? "Logout" : "Login/SignUp"}
             </button>
         </li>
-        <li class="nav-item dropdown rounded">
-        <div className="iconsDiv">
+        <li class="nav-item  rounded">
               {email  && (
-                 <Link to="/bookings" className="nav-link">
+                 <Link to="/bookings" className="">
                 <button
               className="btn btn-outline-success">
                
@@ -89,12 +89,9 @@ const Navbar = (props) => {
                 </button>
                 </Link>
               )}
-              
-              {/* <Link to="/Contact" className="nav-link">
-                <div className="user-select-none  ">Contact Us</div>
-              </Link> */}
-       
-              <div className="icons cart-icon mt-3">
+              </li>
+              <li class="nav-item  rounded">
+              <div className="icons cart-icon" style={{marginTop:'15px'}}>
                 <Link to="/cart">
                   <span className="cart-number">
                     {props.cart ? props.cart : cartlength}
@@ -102,9 +99,8 @@ const Navbar = (props) => {
                   <IoCart />
                 </Link>
               </div>
-            </div>
-         
-        </li>
+         </li>
+      
       </ul>
     </div>
   </div>

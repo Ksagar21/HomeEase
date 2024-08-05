@@ -11,7 +11,7 @@ import { useNavigate,Link } from 'react-router-dom';
 import { BiShow } from "react-icons/bi";
 import { BiHide } from "react-icons/bi";
 import { toast } from 'react-toastify';
-
+import logo from "../../Assets/HE.png"
 const validationSchema = Yup.object().shape({
   username: Yup.string().required('Required'),
   email: Yup.string().email('Invalid email address').required('Required'),
@@ -52,6 +52,8 @@ const navigate = useNavigate()
               {({ errors, touched }) => (
                 <Form className="w-100 d-flex flex-column align-items-center">
 
+<Link to="/" className="nav-link">
+                  <img src={logo} className="logoHe" style={{ margin:"0 15px"}}/></Link>
                   <div className="form-outline mb-4 col-lg-8">
                       <label className="form-label inputLabels mb-3" htmlFor="name">User name</label>
                       <Field type="text" id="username" name="username" className={`form-control form-control-lg col-lg-12 col-md-12 inputFieldsLogin ${touched.username && errors.username ? 'is-invalid' : ''}`} />

@@ -1,4 +1,3 @@
-
 .navbar {
   display: flex;
   flex-direction: row;
@@ -121,3 +120,8 @@
   }
 }
 
+@media (max-width:600px){
+  .logoHe{
+    width: 150px;
+  }
+}

@@ -1,4 +1,4 @@
-
+/* 
 .page-container {
   display: flex;
   justify-content: center;
@@ -44,5 +44,29 @@
   margin-right: auto;
   max-width: 100%;
   height: auto;
+} */
+
+.about-image{
+  margin-left: 20px!important;
 }
 
+@media (max-width:700px) {
+  .about-image{
+    margin-left: 10px!important;
+    width: 100%;
+  } 
+}
+
+@media (min-width:700px) and (max-width:1200px) {
+  .about-image{
+    margin-left: 10px!important;
+    width: 100%;
+  } 
+}
+
+@media (min-width:1500px) and (max-width:2600px) {
+  .about-image{
+    margin-left: 10px!important;
+    width: 100%;
+  } 
+}

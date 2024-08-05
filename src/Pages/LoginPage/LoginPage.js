@@ -13,6 +13,7 @@ import { useState } from "react";
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from "jwt-decode";
 import { Link } from "react-router-dom";
+import logo from "../../Assets/HE.png"
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email address").required("Required"),
@@ -90,7 +91,10 @@ function LoginPage() {
             >
               {({ errors, touched }) => (
                 <Form className="w-100 d-flex flex-column align-items-center">
-                  <div className="form-outline mb-4 col-lg-8">
+                  <Link to="/" className="nav-link">
+                  <img src={logo} className="logoHe" style={{ margin:"0 15px"}}/>
+                  </Link>
+                  <div className="form-outline mb-4 mt-3 col-lg-8">
                     <label className="form-label inputLabels" htmlFor="email">
                       User name or email address
                     </label>
