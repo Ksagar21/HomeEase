@@ -46,7 +46,7 @@ const Navbar = (props) => {
   <div class="container-fluid">
        <Link to="/" className="nav-link">
            <div className="d-flex align-items-center">
-           <img src={logo} className="logoHe" style={{ margin:"0 15px"}}></img>
+           <img src={logo} className="logoHe" style={{width:"220px",height:"80px" }}></img>
            </div>
         </Link>
     <a class="navbar-brand" href="#"></a>
