@@ -61,7 +61,7 @@ const Navbar = (props) => {
               ""
             ) : (
               <button className="btn btn-outline-success" onClick={openRegisterPage}>
-                Register for Professional
+                Register for Professionalls
               </button>
             )}
         </li>
