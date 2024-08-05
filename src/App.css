@@ -43,10 +43,10 @@
   font-weight: semi-bold;
 }
 .btn {
-  background-color: #636B2F !important;
+  background-color: #000000 !important;
 }
 
 .btn:hover{
-  background-color: white !important;
+  background-color: rgb(164, 216, 164) !important;
   color:black !important
 }
