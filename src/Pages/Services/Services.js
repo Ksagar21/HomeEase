@@ -83,7 +83,7 @@ const Services = () => {
     {
       imageUrl: offer,
       title: " Summer Bliss Awaits!",
-      description: "Treat yourself to a rejuvenating spa experience this summer. Enjoy a 10% discount on all women’s spa services. Relax, refresh, and renew!",
+      description: "Experience the ultimate relaxation with our deep tissue massage. Enjoy a 15% discount on body massages. Unwind and feel the tension melt away!",
       validity:"Offer valid until August 31, 2024"
     },
     {
@@ -95,8 +95,8 @@ const Services = () => {
     {
       imageUrl: "https://naturals.in/wp-content/uploads/2022/04/sc-2.jpg.webp",
       title: "Ultimate Relaxation with Deep Tissue Massage",
-      description: "Experience the ultimate relaxation with our deep tissue massage. Enjoy a 15% discount on body massages. Unwind and feel the tension melt away!",
-      validity:"Offer valid until September 30, 2024"
+      description: "Treat yourself to a rejuvenating spa experience this summer. Enjoy a 10% discount on all women’s spa services. Relax, refresh, and renew!",
+     validity:"Offer valid until September 30, 2024"
     },
   ];
 
