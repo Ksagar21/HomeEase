@@ -52,8 +52,16 @@ const [contacts, setContacts] = useState()
             <td>{row.name}</td>
             <td>{row.email}</td>
             <td>{row.message}</td>
-            <td onClick={()=>window.location.href = 'mailto:'+row.email}>Reply</td>
-          </tr>
+            <td>
+              <button
+                  type="button"
+               
+                  className="btn btn-primary"
+                  onClick={()=>window.location.href = 'mailto:'+row.email}
+                >   Reply
+                </button>
+                </td>
+           </tr>
         ))}
       </tbody>
     </table>
